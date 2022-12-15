@@ -3,7 +3,7 @@ This file defines the necessary functions and definitions that students must
 import in order to be able to write a new Karel program. Any new Karel file
 must include the following line:
 
-from stanfordkarel import *
+from turingkarel import *
 
 Original Author: Nicholas Bowman
 Credits: Kylie Jue, Tyler Yep
@@ -13,7 +13,6 @@ Email: nbowman@stanford.edu
 Date of Creation: 10/1/2019
 """
 import sys
-import tkinter as tk
 from pathlib import Path
 
 from .karel_application import KarelApplication
@@ -160,6 +159,5 @@ def run_karel_program(world_file: str = "") -> None:
     karel = KarelProgram(world_file)
 
     # Initialize root Tk Window and spawn Karel application
-    root = tk.Tk()
-    app = KarelApplication(karel, student_code_file, master=root)
+    app = KarelApplication(karel, student_code_file)
     app.mainloop()

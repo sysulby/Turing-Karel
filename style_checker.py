@@ -12,7 +12,7 @@ import inspect
 from pathlib import Path
 from typing import Any, Callable
 
-import stanfordkarel
+import turingkarel
 
 from .karel_application import StudentCode
 
@@ -93,12 +93,12 @@ class StyleChecker:
     def check_naming(self, min_name_length: int = 5) -> bool:
         """."""
         self.print_status_message("Checking function and variable names...")
-        stanfordkarel_names = dir(stanfordkarel)
+        turingkarel_names = dir(turingkarel)
         root = ast.parse(str(self.student_code))
         names = sorted(
             {node.id for node in ast.walk(root) if isinstance(node, ast.Name)}
         )
-        filtered_names = [name for name in names if name not in stanfordkarel_names]
+        filtered_names = [name for name in names if name not in turingkarel_names]
 
         short_names = [
             f
